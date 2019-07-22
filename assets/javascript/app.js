@@ -8,7 +8,7 @@ var firebaseConfig = {
     messagingSenderId: "122282059066",
     appId: "1:122282059066:web:2349d89af726303a"
   };
-  
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
@@ -45,4 +45,21 @@ $('#add-train-btn').click(e => {
     $('#destination-input').val('');
     $('#time-input').val('');
     $('#frequency-input').val('');
+});
+
+// Creates the Table
+database.ref().on('child_added', childSnapshot => {
+    console.log(childSnapshot.val());
+
+    
+    let tableRow = `
+        <tr>
+            <td>${childSnapshot.val().name}</td>
+            <td>${childSnapshot.val().destination}</td>
+            <td>${childSnapshot.val().frequency}</td>
+        </tr>`
+
+    $('tbody').prepend(tableRow);
+}, function(errorObject) {
+    console.log("Errors handled: " + errorObject.code);
 });
