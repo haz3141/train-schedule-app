@@ -34,11 +34,11 @@ $('#add-train-btn').click(e => {
     });
 
     // Debug
-    console.log(trainName);
-    console.log(trainDest);
-    console.log(trainTime);
-    console.log(trainFreq);
-    alert('Train Added');
+    // console.log(trainName);
+    // console.log(trainDest);
+    // console.log(trainTime);
+    // console.log(trainFreq);
+    // alert('Train Added');
 
     // Clear Input Boxes
     $('#train-name-input').val('');
